@@ -22,14 +22,14 @@ export default function Sidebar() {
       {/* === MOBILE BUTTON === */}
       <button
         onClick={() => setOpen(true)}
-        className="md:hidden p-3 fixed top-4 left-4 z-50 text-white backdrop-blur-xl rounded-lg"
+        className="md:hidden p-3 fixed top-4 left-4 z-50  text-white backdrop-blur-xl rounded-lg"
       >
         <Menu size={32} />
       </button>
 
       {open && (
         <div
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden z-40"
+          className="fixed inset-0  bg-black/40 backdrop-blur-sm md:hidden z-40"
           onClick={() => setOpen(false)}
         />
       )}
@@ -41,7 +41,7 @@ export default function Sidebar() {
           bg-black/20 backdrop-blur-lg border-r border-white/20 text-white
           flex flex-col py-8 px-4
           transition-all duration-300 z-50
-          
+       
           ${open ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
 
           ${collapsed ? "md:w-30" : "md:w-65"}
@@ -50,7 +50,7 @@ export default function Sidebar() {
         {/* === DESKTOP COLLAPSE BUTTON === */}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="hidden md:flex absolute -right-4 top-6 
+          className="hidden md:flex absolute cursor-pointer -right-4 top-6 
                      bg-black/50 border border-white/20 p-1 rounded-full"
         >
           {collapsed ? <ChevronRight size={18} /> : <ChevronLeft size={20} />}

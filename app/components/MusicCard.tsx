@@ -1,30 +1,33 @@
-import Link from "next/link";
+import { Song } from "@/api/songs";
 
-type MusicCardProps = {
-  id: number;
-  title: string;
-  artist: string;
-  cover: string;
-};
-
-export default function MusicCard({
-  id,
-  title,
-  artist,
-  cover,
-
-}: MusicCardProps) {
+export default function MusicCard({ song }: { song: Song }) {
   return (
-    <Link href={`/music/${id}`}>
-      <div className="bg-neutral-800 rounded-xl p-4 hover:bg-neutral-700 transition cursor-pointer">
+    <div className="bg-zinc-900 rounded-xl p-4 flex flex-col gap-3 shadow-md hover:bg-zinc-800 transition">
+      {/* Cover */}
+      <div className="w-full aspect-square overflow-hidden rounded-lg">
         <img
-          src={`http://localhost:8000${cover}`}
-          alt={title}
-          className="rounded-lg mb-3 w-full h-40 object-cover"
+          src={`http://127.0.0.1:8000${song.cover}`}
+          alt={song.title}
+          className="w-full h-full object-cover"
         />
-        <h3 className="font-semibold">{title}</h3>
-        <p className="text-sm text-gray-400">{artist}</p>
       </div>
-    </Link>
+
+      {/* Info */}
+      <div className="min-h-auto">
+        <h3 className="text-white text-sm font-semibold truncate">
+          {song.title}
+        </h3>
+        <p className="text-zinc-400 text-xs truncate">
+          {song.artist}
+        </p>
+      </div>
+
+      {/* Audio */}
+      <audio
+        controls
+        src={`http://127.0.0.1:8000${song.url}`}
+        className="w-full"
+      />
+    </div>
   );
 }

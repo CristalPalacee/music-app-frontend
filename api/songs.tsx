@@ -1,16 +1,24 @@
 // lib/api/songs.js
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const BASE_URL ="http://127.0.0.1:8000";
 
-export async function getSongs() {
+export interface Song {
+  id: number;
+  title: string;
+  cover: string
+  url: string
+  artist?: string;
+}
+export interface LyricsResponse {
+  lyrics: string;
+}
+
+export async function getSongs(): Promise<Song[]> {
   try {
     const res = await fetch(`${BASE_URL}/api/songs`, {
       cache: "no-store",
     });
-
     const data = await res.json();
-
-  
    return Array.isArray(data) ? data : [];
   } catch (err) {
     console.error("gagal mengambil lagu:", err);
@@ -19,16 +27,16 @@ export async function getSongs() {
 }
 
 
-export async function getSongById(id) {
+export async function getSongById(id: number ): Promise<Song[]> {
   try {
     const res = await fetch(`${BASE_URL}/api/songs/${id}`);
     return await res.json();
   } catch (err) {
     console.error("Gagal mengambil detail lagu:", err);
-    return null;
+    throw err
   }
 }
-export async function getLyricsById(id) {
+export async function getLyricsById(id: number): Promise<Song[]> {
   try {
     const res = await fetch(
       `${BASE_URL}/api/songs/${id}/lyrics`
@@ -36,6 +44,6 @@ export async function getLyricsById(id) {
     return await res.json();
   } catch (err) {
     console.error("Gagal ambil lirik:", err);
-    return { lyrics: "" };
+    throw err
   }
 }
