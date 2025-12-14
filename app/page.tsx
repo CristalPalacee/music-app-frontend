@@ -32,9 +32,24 @@ export default function Home() {
   const [currentSongIndex, setCurrentSongIndex] = useState<number | null>(null);
 
   // Ambil daftar lagu
-  useEffect(() => {
-    getSongs().then((data: Song[]) => setSongs(data));
-  }, []);
+   useEffect(() => {
+  const fetchSongs = async () => {
+    const res = await getSongs();
+
+    // 🔥 PENTING: pastikan array
+    if (Array.isArray(res)) {
+      setSongs(res);
+    } else if (res?.data && Array.isArray(res.data)) {
+      setSongs(res.data);
+    } else {
+      setSongs([]);
+      console.error("Invalid songs response:", res);
+    }
+  };
+
+  fetchSongs();
+}, []);
+
 
   // Mendengar event NEXT dari CustomPlayer
   useEffect(() => {
@@ -93,7 +108,7 @@ export default function Home() {
         </h3>
 
         <div className="grid md:grid-cols-3 md:p-20 font-bold text-amber-50 md:gap-7 gap-5">
-          {songs.map((song: any) => (
+          {Array.isArray(songs) && songs.map((song) => (
             <MusicCard
               key={song.id}
               id={song.id}
