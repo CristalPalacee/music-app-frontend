@@ -4,29 +4,16 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export async function getSongs() {
   try {
-    const res = await fetch(`${BASE_URL}/api/songs`);
-
-    if (!res.ok) {
-      console.error("Fetch failed:", res.status);
-      return [];
-    }
+    const res = await fetch(`${BASE_URL}/api/songs`, {
+      cache: "no-store",
+    });
 
     const data = await res.json();
 
-    // ✅ BACKEND RETURN ARRAY
-    if (Array.isArray(data)) {
-      return data;
-    }
-
-    // (opsional kalau suatu hari backend berubah)
-    if (Array.isArray(data?.songs)) {
-      return data.songs;
-    }
-
-    console.error("Unexpected songs response:", data);
-    return [];
+  
+   return Array.isArray(data) ? data : [];
   } catch (err) {
-    console.error("Gagal mengambil lagu:", err);
+    console.error("gagal mengambil lagu:", err);
     return [];
   }
 }
