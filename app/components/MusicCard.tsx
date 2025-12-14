@@ -1,34 +1,30 @@
-"use client";
+import Link from "next/link";
 
-import CustomPlayer from "./CustomPlayer";
-
-interface Props {
+type MusicCardProps = {
   id: number;
   title: string;
   artist: string;
   cover: string;
-  audioUrl: string;
-}
+};
 
 export default function MusicCard({
+  id,
   title,
   artist,
   cover,
-  audioUrl,
-}: Props) {
+
+}: MusicCardProps) {
   return (
-    <div className="bg-neutral-900 rounded-xl p-4 shadow">
-      <img
-        src={cover}
-        alt={title}
-        className="w-full h-48 object-cover rounded-lg"
-        loading="lazy"
-      />
-
-      <h4 className="mt-3 text-lg font-bold text-white">{title}</h4>
-      <p className="text-neutral-400">{artist}</p>
-
-      <CustomPlayer src={audioUrl} />
-    </div>
+    <Link href={`/music/${id}`}>
+      <div className="bg-neutral-800 rounded-xl p-4 hover:bg-neutral-700 transition cursor-pointer">
+        <img
+          src={`http://localhost:8000${cover}`}
+          alt={title}
+          className="rounded-lg mb-3 w-full h-40 object-cover"
+        />
+        <h3 className="font-semibold">{title}</h3>
+        <p className="text-sm text-gray-400">{artist}</p>
+      </div>
+    </Link>
   );
 }
