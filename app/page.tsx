@@ -46,7 +46,7 @@ const slides = [
     <main className="min-h-screen bg-gradient-to-b from-red-900/50 to-black bg-black  md:px-0 p-1">
         <Slider slides={slides} />
       <h1 className="text-white text-2xl font-bold md:pt-8 p-8 leading-relaxed space-y-2  text-center ">
-        Welcome To My Musik
+        Welcome To My Musik saya
       </h1>
 
       <div className="
