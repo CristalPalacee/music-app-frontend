@@ -2,7 +2,7 @@
 
 // import { Play, Pause, SkipBack, SkipForward, Heart, Home, Search, LibraryBig } from "lucide-react";
 import { useState,useEffect } from "react";
-import {getSongs, Song} from "@/api/songs"
+import {getSongs, Song} from "@/app/api/songs"
 import MusicCard from "./components/MusicCard";
 import Slider from "./slider/page";
 

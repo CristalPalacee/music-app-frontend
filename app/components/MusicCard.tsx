@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react";
-import { Song } from "@/api/songs";
+import { Song } from "@/app/api/songs";
 import Link from "next/link";
 
 declare global {
