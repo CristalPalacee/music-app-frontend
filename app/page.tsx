@@ -7,7 +7,7 @@ import MusicCard from "./components/MusicCard";
 
 
 export default function SpotifyLikeUI() {
-  const [playing, setPlaying] = useState(false);
+  // const [playing, setPlaying] = useState(false);
   const [songs, setSongs] = useState<Song[]>([]);
 
  useEffect(() => {
@@ -31,7 +31,7 @@ export default function SpotifyLikeUI() {
 
       <div className="
         grid
-        grid-cols
+        grid-cols-1
         md:grid-cols-4
         md:p-30
         gap-6
