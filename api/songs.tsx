@@ -27,15 +27,19 @@ export async function getSongs(): Promise<Song[]> {
 }
 
 
-export async function getSongById(id: number ): Promise<Song[]> {
-  try {
-    const res = await fetch(`${BASE_URL}/api/songs/${id}`);
-    return await res.json();
-  } catch (err) {
-    console.error("Gagal mengambil detail lagu:", err);
-    throw err
+export async function getSongById(id: number): Promise<Song> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/songs/${id}`,
+    { cache: "no-store" }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch song");
   }
+
+  return res.json();
 }
+
 export async function getLyricsById(id: number): Promise<Song[]> {
   try {
     const res = await fetch(

@@ -58,7 +58,7 @@ export default function Sidebar() {
 
         {/* === TITLE === */}
         {!collapsed && (
-          <h1 className="text-3xl text-center font-bold mb-12 tracking-wide">Mymusik</h1>
+          <h1 className="text-1xl md:text-2xl text-center font-bold mb-12 tracking-wide">MyMusik</h1>
         )}
 
         {/* === MENU ITEMS === */}
