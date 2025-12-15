@@ -4,6 +4,7 @@
 import { useState,useEffect } from "react";
 import {getSongs, Song} from "@/api/songs"
 import MusicCard from "./components/MusicCard";
+import Slider from "./slider/page";
 
 
 export default function SpotifyLikeUI() {
@@ -18,15 +19,33 @@ export default function SpotifyLikeUI() {
 
 
   // if (loading) return <p>Loading...</p>;
-
+const slides = [
+  {
+    id: 1,
+    image: "/banner/1.jpg",
+    title: "Top Hits",
+  },
+  {
+    id: 2,
+    image: "/banner/2.jpg",
+    title: "Chill Vibes",
+  },
+  {
+    id: 3,
+    image: "/banner/3.jpg",
+    title: "Chill Vibes",
+  },
+ 
+];
 
 
 
 
   return (
-      <main className="min-h-screen bg-gradient-to-b from-red-900/50 to-black bg-black  p-6">
-      <h1 className="text-white text-3xl font-bold md:pt-8 p-8 leading-relaxed space-y-2  text-center ">
-        Welcome <br/> To <br/> My Musik
+    <main className="min-h-screen bg-gradient-to-b from-red-900/50 to-black bg-black  md:px-0 p-1">
+        <Slider slides={slides} />
+      <h1 className="text-white text-2xl font-bold md:pt-8 p-8 leading-relaxed space-y-2  text-center ">
+        Welcome To My Musik
       </h1>
 
       <div className="
@@ -35,6 +54,7 @@ export default function SpotifyLikeUI() {
         md:grid-cols-4
         md:p-30
         gap-6
+        px-3
         md:gap-10
       ">
         {songs.map((song) => (

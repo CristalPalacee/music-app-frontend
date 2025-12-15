@@ -28,7 +28,7 @@ export default function SongDetailPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-red-900/50 to-black text-white">
+    <main className="min-h-screen bg-black bg-gradient-to-b from-red-900/50 to-black text-white">
 
 
       {/* CONTENT */}
