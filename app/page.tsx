@@ -35,6 +35,7 @@ const slides = [
     image: "/banner/3.jpg",
     title: "Chill Vibes",
   },
+
  
 ];
 
