@@ -1,3 +1,6 @@
+"use client"
+
+
 import { Song } from "@/api/songs";
 
 export default function MusicCard({ song }: { song: Song }) {
@@ -6,7 +9,7 @@ export default function MusicCard({ song }: { song: Song }) {
       {/* Cover */}
       <div className="w-full aspect-square overflow-hidden rounded-lg">
         <img
-          src={`http://127.0.0.1:8000${song.cover}`}
+          src={song.cover}
           alt={song.title}
           className="w-full h-full object-cover"
         />
@@ -25,7 +28,8 @@ export default function MusicCard({ song }: { song: Song }) {
       {/* Audio */}
       <audio
         controls
-        src={`http://127.0.0.1:8000${song.url}`}
+        preload="metadata"
+        src={song.url}
         className="w-full"
       />
     </div>
