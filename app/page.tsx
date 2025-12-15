@@ -4,7 +4,8 @@
 import { useState,useEffect } from "react";
 import {getSongs, Song} from "@/app/api/songs"
 import MusicCard from "./components/MusicCard";
-import Slider from "./slider/page";
+import Slider from "./components/Slider";
+
 
 
 export default function SpotifyLikeUI() {

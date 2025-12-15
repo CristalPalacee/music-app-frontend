@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { getSongById, Song } from "@/api/songs";
+import { getSongById, Song } from "@/app/api/songs";
 
 export default function SongDetailPage() {
   const params = useParams();
