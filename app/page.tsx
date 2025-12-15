@@ -22,17 +22,17 @@ export default function SpotifyLikeUI() {
 const slides = [
   {
     id: 1,
-    image: "/banner/1.jpg",
+    image: "/banner/logo.jpg",
     title: "Top Hits",
   },
   {
     id: 2,
-    image: "/banner/2.jpg",
+    image: "/banner/music.jpg",
     title: "Chill Vibes",
   },
   {
     id: 3,
-    image: "/banner/3.jpg",
+    image: "/banner/orang.jpg",
     title: "Chill Vibes",
   },
 
