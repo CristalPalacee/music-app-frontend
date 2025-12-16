@@ -5,6 +5,7 @@ import { useState,useEffect } from "react";
 import {getSongs, Song} from "@/app/api/songs"
 import MusicCard from "./components/MusicCard";
 import Slider from "./components/Slider";
+import Hero from "./page/Hero";
 
 
 
@@ -31,12 +32,12 @@ const slides = [
     image: "/banner/music.jpg",
     title: "Chill Vibes",
   },
+  
   {
-    id: 3,
-    image: "/banner/orang.jpg",
+    id: 4,
+    image: "/banner/3",
     title: "Chill Vibes",
   },
-
  
 ];
 
@@ -46,9 +47,11 @@ const slides = [
   return (
     <main className="min-h-screen bg-gradient-to-b from-red-900/50 to-black bg-black  md:px-0 p-1">
         <Slider slides={slides} />
-      <h1 className="text-white text-2xl font-bold md:pt-8 p-8 leading-relaxed space-y-2  text-center ">
-        Welcome To My Musik saya
-      </h1>
+      <div>
+    
+          <Hero songs={songs} />
+    
+      </div>
 
       <div className="
         grid

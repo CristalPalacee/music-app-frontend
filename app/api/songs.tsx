@@ -3,6 +3,7 @@
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL! 
 
 export interface Song {
+  length: number;
   id: number;
   title: string;
   cover: string
