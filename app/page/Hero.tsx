@@ -28,7 +28,7 @@ export default function Hero({songs}: Props) {
             </span>
         
         </button>
-        <div className="flex gap-6 p-2 mb-3">
+        <div className="flex gap-20 px-3 mb-3">
            
              {songs.slice(0, 3).map((song) => (
             <Image key={song.id} song={song} />

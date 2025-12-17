@@ -56,11 +56,11 @@ const slides = [
       <div className="
         grid
         grid-cols-1
-        md:grid-cols-4
-        md:p-30
+        md:grid-cols-5
+        md:p-50
         gap-6
         px-3
-        md:gap-10
+        md:gap-17
       ">
         {songs.map((song) => (
           <MusicCard key={song.id} song={song} />

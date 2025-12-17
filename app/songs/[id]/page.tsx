@@ -214,20 +214,20 @@ export default function SongDetailPage() {
 
 
               {/* CONTROL */}
-              <div className="flex  items-center justify-center gap-3 md:gap-7 mt-4">
+              <div className="flex  items-center justify-center gap-6 md:gap-7 mt-4">
                 <button
                   onClick={prevSong}
                   className="p-2 rounded-full hover:scale-110  cursor-pointer  bg-gray-700 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition duration-150 ease-in-out shadow-md"
                   aria-label="Next track"
                 >
-                  <svg xmlns="www.w3.org" className="w-4 h-4  md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
+                  <svg xmlns="www.w3.org" className="w-9 h-9  md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" />
                   </svg>
                 </button>
 
                 <button
                   onClick={togglePlay}
-                  className="w-17 h-13  md:w-20 md:h-20 rounded-full cursor-pointer   bg-transparent border border-red-500  hover:bg-red-500/50  text-white
+                  className="w-17 h-17  md:w-20 md:h-20 rounded-full cursor-pointer   bg-transparent border border-red-500  hover:bg-red-500/50  text-white
                        flex items-center justify-center text-2xl
                        hover:scale-110 active:scale-95 transition shadow-lg"
                 >
@@ -239,7 +239,7 @@ export default function SongDetailPage() {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className="w-4 h-4  md:w-8 md:h-8"
+                      className="w-6 h-6  md:w-8 md:h-8"
                     >
                       <path d="M6 5h4v14H6zm8 0h4v14h-4z" />
                     </svg>
@@ -251,7 +251,7 @@ export default function SongDetailPage() {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      className="w-4 h-4   md:w-8 md:h-8"
+                      className="w-6 h-6   md:w-8 md:h-8"
                     >
                       <path d="M8 5.14v14l11-7-11-7z" />
                     </svg>
@@ -267,7 +267,7 @@ export default function SongDetailPage() {
                   className="p-2 rounded-full hover:scale-110 bg-gray-700 cursor-pointer  text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition duration-150 ease-in-out shadow-md"
                   aria-label="Next track"
                 >
-                  <svg xmlns="www.w3.org" className="w-4 h-4  md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
+                  <svg xmlns="www.w3.org" className="w-9 h-9  md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
                     <path d="m6 18 8.5-6L6 6v12zM16 6v12h2V6h-2z" />
                   </svg>
                 </button>
