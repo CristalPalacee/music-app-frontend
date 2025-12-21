@@ -148,7 +148,7 @@ export default function SongDetailPage() {
 
 
   return (
-    <main className="min-h-screen  bg-black bg-gradient-to-b from-red-900/50 to-black text-white">
+    <main className="min-h-screen  bg-gradient-to-b from-[#01227c] via-[#171342] to-[#03040a] text-white">
 
 
       {/* CONTENT */}
@@ -214,13 +214,13 @@ export default function SongDetailPage() {
 
 
               {/* CONTROL */}
-              <div className="flex  items-center justify-center gap-6 md:gap-7 mt-4">
+              <div className="flex  items-center justify-center gap-6 md:gap-12 md:py-3 mt-4">
                 <button
                   onClick={prevSong}
                   className="p-2 rounded-full hover:scale-110  cursor-pointer  bg-gray-700 text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition duration-150 ease-in-out shadow-md"
                   aria-label="Next track"
                 >
-                  <svg xmlns="www.w3.org" className="w-9 h-9  md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
+                  <svg xmlns="www.w3.org" className="w-9 h-9  md:w-15 md:h-15" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z" />
                   </svg>
                 </button>
@@ -267,7 +267,7 @@ export default function SongDetailPage() {
                   className="p-2 rounded-full hover:scale-110 bg-gray-700 cursor-pointer  text-white hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition duration-150 ease-in-out shadow-md"
                   aria-label="Next track"
                 >
-                  <svg xmlns="www.w3.org" className="w-9 h-9  md:w-8 md:h-8" viewBox="0 0 24 24" fill="currentColor">
+                  <svg xmlns="www.w3.org" className="w-9 h-9  md:w-15 md:h-15" viewBox="0 0 24 24" fill="currentColor">
                     <path d="m6 18 8.5-6L6 6v12zM16 6v12h2V6h-2z" />
                   </svg>
                 </button>

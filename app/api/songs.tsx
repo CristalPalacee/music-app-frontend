@@ -1,6 +1,6 @@
 // lib/api/songs.js
 
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL! 
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL!
 
 export interface Song {
   length: number;
@@ -19,8 +19,18 @@ export async function getSongs(): Promise<Song[]> {
     const res = await fetch(`${BASE_URL}/api/songs`, {
       cache: "no-store",
     });
-    const data = await res.json();
-   return Array.isArray(data) ? data : [];
+    const data: Song[] = await res.json();
+    if (!Array.isArray(data)) return [];
+
+
+    // 🔑 DEDUPLICATE BY ID
+    const uniqueSongs = Array.from(
+      new Map(data.map(song => [song.id, song])).values()
+    );
+
+    return uniqueSongs;
+
+
   } catch (err) {
     console.error("gagal mengambil lagu:", err);
     return [];

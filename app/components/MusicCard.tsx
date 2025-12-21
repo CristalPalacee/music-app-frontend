@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useEffect, useRef } from "react";
 import { Song } from "@/app/api/songs";
@@ -10,52 +10,47 @@ declare global {
   }
 }
 
-export default function MusicCard({ song }: { song: Song }) {
+type Props = {
 
+  song: Song;
+ 
+
+}
+
+export default function MusicCard({ song}: Props) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-
   useEffect(() => {
-    if (!window.__audios) {
-      window.__audios = [];
-    }
-
-    if (audioRef.current) {
-      window.__audios.push(audioRef.current);
-    }
+    if (!window.__audios) window.__audios = [];
+    if (audioRef.current) window.__audios.push(audioRef.current);
 
     return () => {
-      if (audioRef.current) {
-        window.__audios = window.__audios?.filter(
-          (a) => a !== audioRef.current
-        );
-      }
+      window.__audios = window.__audios?.filter(
+        (a) => a !== audioRef.current
+      );
     };
   }, []);
 
-  const handlePlay = () => {
-    window.__audios?.forEach((audio) => {
-      if (audio !== audioRef.current) {
-        audio.pause();
-      }
-    });
-  };
+const handlePlay = () => {
+  window.__audios?.forEach((a) => {
+    if (a !== audioRef.current) a.pause();
+  });
+};
+
 
   return (
-<Link href={`/songs/${song.id}`}>
-
     <div className="bg-zinc-900 rounded-xl p-4 flex flex-col gap-3 shadow-md hover:bg-zinc-800 transition">
-      {/* Cover */}
-      <div className="w-full aspect-square overflow-hidden rounded-lg">
-        <img
-          src={song.cover}
-          alt={song.title}
-          className="w-full h-full object-cover"
-        />
-      </div>
+      <Link href={`/songs/${song.id}`}>
+         <div className="w-full aspect-square overflow-hidden rounded-lg">
+          <img
+            src={song.cover}
+            alt={song.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </Link>
 
-      {/* Info */}
-      <div className="min-h-auto">
+       <div>
         <h3 className="text-white text-sm font-semibold truncate">
           {song.title}
         </h3>
@@ -64,16 +59,14 @@ export default function MusicCard({ song }: { song: Song }) {
         </p>
       </div>
 
-      {/* Audio */}
-      <audio
+      {/* 🔑 AUDIO TIDAK DI DALAM LINK */}
+      <audio className="w-full"
+        ref={audioRef}
+        src={song.url}
         controls
         preload="metadata"
-        src={song.url}
-        onPlay={handlePlay}
-        className="w-full"
+          onPlay={handlePlay}
       />
     </div>
-</Link>
-
   );
 }
