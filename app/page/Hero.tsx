@@ -2,59 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Song } from "@/app/api/songs";
-import Overlay from "../components/Overlay"
+// import Overlay from "../components/Overlay"
+import SpotifyClient from "../components/SpotifyClient";
+import Overlay from "../context/OverlayCard";
+import { PlayerProvider } from "../context/PlayerContext";
 
 
-
-
-
-declare global {
-  interface Window {
-    __audios?: HTMLAudioElement[];
-  }
-}
 
 export default function Hero({ songs }: { songs: Song[] }) {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [currentSong, setCurrentSong] = useState<Song | null>(null);
-  const [showOverlay, setShowOverlay] = useState(false);
-
-   useEffect(() => {
-    if (!window.__audios) window.__audios = [];
-    if (audioRef.current) window.__audios.push(audioRef.current);
-
-    return () => {
-      window.__audios = window.__audios?.filter(
-        (a) => a !== audioRef.current
-      );
-    };
-  }, []);
-
-  
-    const playRandomSong = () => {
-      if (!songs.length) return;
+ 
 
 
-      // pause audio lain
-    window.__audios?.forEach((a) => {
-      if (a !== audioRef.current) a.pause();
-
-
-    });
    
-
-     const random = songs[Math.floor(Math.random() * songs.length)];
-      setCurrentSong(random);
-      setShowOverlay(true);
-
-      // ✅ PAKSA PLAY (INI KUNCI)
-      setTimeout(() => {
-      if (audioRef.current) {
-        audioRef.current.src = random.url;
-        audioRef.current.play().catch(console.error);
-      }
-    }, 0);
-  };
 
 
 
@@ -70,23 +29,17 @@ export default function Hero({ songs }: { songs: Song[] }) {
           Discover and play your favorite music instantly.
         </p>
         <button
-          onClick={playRandomSong}
+         
           className="bg-transparent border-2 border-blue-600 cursor-pointer hover:bg-blue-900/50 px-6 py-2 rounded-full"
         >
           Putar Sekarang
         </button>
-        <audio className="hidden" ref={audioRef} />
+   
       </div>
 
    
 
-      {showOverlay && currentSong && (
-        <Overlay
-          audioRef={audioRef}
-          song={currentSong}
-          onClose={() => setShowOverlay(false)}
-        />
-      )}
+   
 
 
 

@@ -9,13 +9,19 @@ import OverlayCard from "../context/OverlayCard";
 import { useState, useRef } from "react";
 
 
+declare global {
+  interface Window {
+    __audios?: HTMLAudioElement[];
+  }
+}
+
 type Props = {
   songs: Song[];
   
 };
 
 export default function SpotifyClient({ songs}: Props) {
-   const [activeSong, setActiveSong] = useState<Song | null>(null);
+  const [activeSong, setActiveSong] = useState<Song | null>();
   const [showOverlay, setShowOverlay] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const slides = [
@@ -51,12 +57,17 @@ export default function SpotifyClient({ songs}: Props) {
     setActiveSong(songs[prevIndex]);
   };
 
+ 
   return (
     <PlayerProvider>
     <main className="min-h-screen bg-gradient-to-b from-[#010718] via-[#392cc4] to-[#03040a] p-1">
 
       <Slider slides={slides} />
+
+
       <Hero songs={songs} />
+
+
       <div className="grid grid-cols-1 md:grid-cols-3 md:p-40 gap-6 px-3 md:gap-16">
         {songs.map((song, i) => (
           <MusicCard
