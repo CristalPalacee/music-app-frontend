@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { Song } from "@/app/api/songs";
 import Overlay from "../components/Overlay"
-import SpotifyClient from "../components/SpotifyClient";
+
+
 
 
 
@@ -86,6 +87,8 @@ export default function Hero({ songs }: { songs: Song[] }) {
           onClose={() => setShowOverlay(false)}
         />
       )}
+
+
 
     </section>
   );
