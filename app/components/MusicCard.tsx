@@ -99,7 +99,7 @@ const handlePlayPause = () => {
     relative w-10 h-10 md:w-9 md:h-8
     rounded-full
     text-amber-50
-    border border-red-500
+    border border-amber-100
     flex items-center justify-center
     transition-all duration-300 ease-out
     ${isPlaying ? "bg-red-500 scale-110 shadow-red-500/50" : "bg-transparent"}

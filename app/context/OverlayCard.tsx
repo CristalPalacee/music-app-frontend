@@ -1,7 +1,7 @@
 "use client";
 
 import { Song } from "@/app/api/songs";
-import { Play, Pause, X, SkipBack, SkipForward, ChevronDown } from "lucide-react";
+import { Play, Pause, X, SkipBack, SkipForward, ChevronDown,  } from "lucide-react";
 import { useEffect, useState } from "react";
 
 type Props = {
@@ -10,6 +10,7 @@ type Props = {
     onPrev?: () => void;
     audioRef: React.RefObject<HTMLAudioElement | null>;
     onClose: () => void;
+   
 };
 
 declare global {
@@ -104,8 +105,8 @@ export default function Overlay({
                         : "top-0 bottom-0 h-screen border-t-0"}
       `}
             >
-                {/* ================= AUDIO (SATU SAJA) ================= */}
-                <audio ref={audioRef} src={song.url} autoPlay preload="metadata" />
+              
+             
 
                 {/* ================= MINI PLAYER ================= */}
                 {mode === "mini" && (
@@ -133,20 +134,20 @@ export default function Overlay({
                             onClick={(e) => e.stopPropagation()}
                         >
                             {onPrev && (
-                                <button onClick={onPrev} className="text-white/70 hover:text-white">
+                                <button onClick={onPrev} className="text-white/70 hover:scale-110 cursor-pointer hover:text-white">
                                     <SkipBack size={20} />
                                 </button>
                             )}
 
                             <button
                                 onClick={togglePlay}
-                                className="w-10 h-10 rounded-full bg-white flex items-center justify-center"
+                                className="w-10 h-10 rounded-full  hover:scale-110 cursor-pointer bg-white flex items-center justify-center"
                             >
                                 {isPlaying ? <Pause size={18} /> : <Play size={18} />}
                             </button>
 
                             {onNext && (
-                                <button onClick={onNext} className="text-white/70 hover:text-white">
+                                <button onClick={onNext} className="text-white/70 hover:scale-110 cursor-pointer hover:text-white">
                                     <SkipForward size={20} />
                                 </button>
                             )}
